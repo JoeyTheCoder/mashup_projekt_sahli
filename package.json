@@ -2,7 +2,7 @@
   "name": "mashup",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://joeythecoder.github.io/",
+  "homepage": "https://joeythecoder.github.io/mashup",
   "dependencies": {
     "react": "^16.7.0",
     "react-dom": "^16.7.0",

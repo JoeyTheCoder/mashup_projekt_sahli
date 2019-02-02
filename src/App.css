@@ -6,15 +6,23 @@
 
 .App {
   text-align: center;
-  background-color: #282c34;
+  background-image: url("img/abstract-attractive-backdrop-988872.jpg");
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: black;
   font-style: inherit;
+
+}
+
+.inputfield{
+
+}
+.submitfield{
+
 }
 
 .App-logo {
@@ -27,6 +35,14 @@
 .titel{
   font-size: 3.5em;
   font-weight: bold;
+  text-align: center;
+}
+.word{
+  text-align: center;
+}
+.container{
+
+  height:100%;
 }
 
 .App-header {
@@ -37,9 +53,19 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
-}
+  color: black;
 
+}
+.logik{
+  background-color:rgba(255, 255, 255, 0.5); ;
+  padding-top: 3em;
+  padding-bottom: 3em;
+  font-weight: bold;
+}
+.phonetic{
+  text-align: center;
+
+}
 .App-link {
   color: #61dafb;
 }
