@@ -14,16 +14,15 @@ class App extends Component {
       items: [],
       isLoaded: false,
       name: "example",
+      value2: "other",
 
     }
   }
 
   //fetch Methode
   componentDidMount() {
-
-
-    const placeholder = this.state;
-    const url = 'https://googledictionaryapi.eu-gb.mybluemix.net/?define='+placeholder+'&lang=en';
+    let {name} = this.state;
+    const url = 'https://googledictionaryapi.eu-gb.mybluemix.net/?define='+[name]+'&lang=en';
     fetch(url)
         .then(res => res.json())
         .then(json => {
@@ -32,9 +31,12 @@ class App extends Component {
             items: json
           })
         });
+
   }
   handleSubmit = (event)=>{
     event.preventDefault()
+
+
   }
 
   //Input Field
@@ -46,7 +48,18 @@ class App extends Component {
     this.setState({
       [event.target.name]: event.target.value
     })
+    let {name} = this.state;
+    const url = 'https://googledictionaryapi.eu-gb.mybluemix.net/?define='+[name]+'&lang=en';
+    fetch(url)
+        .then(res => res.json())
+        .then(json => {
+          this.setState({
+            isLoaded: true,
+            items: json
+          })
+        });
   }
+  inputChange
 
   //Render Methode
   render() {
