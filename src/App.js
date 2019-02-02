@@ -4,7 +4,7 @@ import './App.css';
 
 /**
  * @author: Joel Sahli
- * @version: 2.0
+ * @version: 3.0
  */
 
 class App extends Component {
@@ -59,6 +59,7 @@ class App extends Component {
     }
     return (
         <div classname="App">
+          <h1 className='titel'>Phonetics-Converter</h1>
           <form className='inputfield' onSubmit={this.handleSubmit}>
             <label>
               Word:
