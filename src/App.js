@@ -35,7 +35,16 @@ class App extends Component {
   }
   handleSubmit = (event)=>{
     event.preventDefault()
-
+      let {name} = this.state;
+      const url = 'https://googledictionaryapi.eu-gb.mybluemix.net/?define='+[name]+'&lang=en';
+      fetch(url)
+          .then(res => res.json())
+          .then(json => {
+              this.setState({
+                  isLoaded: true,
+                  items: json
+              })
+          });
 
   }
 
@@ -48,16 +57,7 @@ class App extends Component {
     this.setState({
       [event.target.name]: event.target.value
     })
-    let {name} = this.state;
-    const url = 'https://googledictionaryapi.eu-gb.mybluemix.net/?define='+[name]+'&lang=en';
-    fetch(url)
-        .then(res => res.json())
-        .then(json => {
-          this.setState({
-            isLoaded: true,
-            items: json
-          })
-        });
+
   }
   inputChange
 
@@ -71,24 +71,32 @@ class App extends Component {
       return <div>Loading...</div>;
     }
     return (
-        <div classname="App">
+        <div className="App">
+            <section className='container'>
           <h1 className='titel'>Phonetics-Converter</h1>
+                <section className='logik'>
           <form className='inputfield' onSubmit={this.handleSubmit}>
-            <label>
-              Word:
-              <input type="text" name="name" onChange={this.handleInputChange} />
+            <label id='inp' className='submitfield'>
+              Fill in any english word:
+                <br/>
+                <br/>
+              <input id='inp' type="text" name="name" onChange={this.handleInputChange} />
             </label>
             <input type="submit" value="Submit" />
           </form>
 
-          <ul>
-            {items.map(item => (
-                <li key="{item.id}">
-                  Phonetic: {item.phonetic}
-                </li>
-            ))}
-          </ul>
-          <p>name is: {name}</p>
+
+          <p className="word">Word is: {name}</p>
+
+            <ul className='phonetic'>
+                {items.map(item => (
+                    <p key="{item.id}">Phonetic: {item.phonetic}
+                    </p>
+                ))}
+            </ul>
+                </section>
+
+            </section>
         </div>
     );
   }
